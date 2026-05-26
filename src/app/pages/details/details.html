@@ -1,0 +1,244 @@
+<div class="details-page" *ngIf="movie">
+
+<nav class="nt-navbar fixed-top">
+  <div class="d-flex justify-content-between align-items-center px-4 py-3 mx-auto" style="max-width:1440px;">
+
+    <div class="d-flex align-items-center gap-5">
+      <a class="nt-brand" href="#">Movix</a>
+      <div class="d-none d-md-flex align-items-center gap-4">
+        <a class="nt-nav-link active" href="/">Home</a>
+        <a class="nt-nav-link" href="#"></a>
+        <a class="nt-nav-link" href="#"></a>
+        <a class="nt-nav-link" href="#"></a>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+
+      <div class="nt-search-wrap d-none d-lg-block" style="width:800px;">
+        <span class="material-symbols-outlined">search</span>
+        <input  id="searchInputDetails" class="nt-search" placeholder="Search films..." type="text"/>
+        <div id="searchResults" class="nt-search-results"></div>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="nt-icon-btn material-symbols-outlined">notifications</button>
+        <button class="nt-icon-btn material-symbols-outlined">account_circle</button>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <section class="nt-hero">
+    <div class="nt-hero-bg" #heroBg>
+      <video *ngIf="movie.video" 
+        [src]="asset(movie.video)" 
+        autoplay 
+        [muted]="true"
+        loop 
+        playsinline
+        style="width:100%; height:100%; object-fit:cover;">
+      </video>
+    </div>
+    <div class="nt-hero-gradient"></div>
+    <div class="nt-hero-content">
+      <div class="d-flex gap-2 mb-3">
+        <div class="nt-hero-badges d-flex gap-2 mb-3">
+          <span *ngIf="badgesMain" [ngClass]="obtenerClaseBadge(badgesMain) + ' nt-badge-main'">
+            {{ badgesMain }}
+          </span>
+          <span *ngFor="let badge of badgesSecundarios" [ngClass]="obtenerClaseBadge(badge)">
+            {{ badge }}
+          </span>
+        </div>
+      </div>
+      <h1 id="titulo" class="nt-hero-title mb-3">{{ movie.titulo }}</h1>
+      <div class="nt-hero-meta">
+        <span class="rating-val d-flex align-items-center gap-1">
+          <span class="material-symbols-outlined fill-icon" style="font-size:1rem;">star</span> 
+          {{ movie.rating }}
+        </span>
+        <span>Año de Lanzamiento: {{ movie.anio }}</span>
+        <span>{{ movie.duracion }}</span>
+        <span class="nt-rating-pill" [style.background]="obtenerClasificacion().color">
+          {{ obtenerClasificacion().texto }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido -->
+  <section class="nt-content-section">
+    <div class="row g-5 mx-auto" style="max-width:1440px;">
+
+      <!-- Poster -->
+      <aside class="col-12 col-lg-4">
+        <div class="nt-poster-card">
+          <div class="nt-poster-img-wrap">
+            <img [src]="asset(movie.imagen)" alt="Imagen Poster" />
+            <div class="nt-poster-ring"></div>
+          </div>
+
+          <div>
+            <p class="nt-stat-label mb-2">Genero</p>
+            <div class="d-flex flex-wrap gap-2">
+              <span *ngFor="let genero of movie.genero" class="nt-genre-chip">{{ genero }}</span>
+            </div>
+          </div>
+
+          <!-- Estadisticas -->
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-top:1px solid rgba(72,72,71,.1); border-bottom:1px solid rgba(72,72,71,.1);">
+            <div>
+              <p class="nt-stat-label mb-1">Vistas</p>
+              <span class="nt-stat-value">{{ movie.vistas }}</span>
+            </div>  
+            <div class="text-end">
+              <p class="nt-stat-label mb-1">Rating</p>
+              <div class="nt-stars">
+                <span *ngFor="let filled of obtenerEstrellas()" 
+                  class="material-symbols-outlined" 
+                  [ngClass]="{'fill-icon': filled}">
+                  star
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <button class="nt-btn-cta">
+            <span class="material-symbols-outlined fill-icon">play_arrow</span>
+            Ver Trailer
+          </button>
+
+        </div>
+      </aside>
+
+      <!-- Sipnosis y cast  -->
+      <div class="col-12 col-lg-8 d-flex flex-column gap-5">
+
+        <div>
+          <h2 class="nt-section-heading mb-4">Sipnosis</h2>
+          <p class="nt-synopsis">{{ movie.sinopsis }}</p>
+        </div>
+
+        <div>
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h2 class="nt-section-heading">Reparto</h2>
+            <a class="nt-footer-link" style="color:var(--nt-primary); font-size:.72rem;" href="#">Ver Creditos</a>
+          </div>
+          <div class="row row-cols-2 row-cols-sm-4 g-3">
+            <div *ngFor="let actor of movie.actores" class="col">
+              <div class="nt-cast-card">
+                <div class="nt-cast-img-wrap mb-2">
+                  <img [src]="asset(actor.imagen)" alt="{{ actor.nombre }}">
+                  <div class="nt-cast-overlay"></div>
+                </div>
+                <p class="nt-cast-name mb-0">{{ actor.nombre }}</p>
+                <p class="nt-cast-role">{{ actor.personaje }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comentarios -->
+  <section class="nt-comments-section">
+    <div class="mx-auto" style="max-width:1440px;">
+      <div style="max-width:56rem;">
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h2 class="nt-comments-title">Opiniones del público</h2>
+          <span id="totalComentarios" class="nt-comments-count">{{ getTotalComentarios() }} Comments</span>
+        </div>
+
+        <!-- Input area -->
+        <div class="nt-comment-box d-flex gap-4 mb-5">
+          <div class="nt-avatar">LL</div>
+          <div class="flex-grow-1 d-flex flex-column gap-3">
+            <textarea class="nt-textarea" 
+              placeholder="Añade un comentario"
+              [(ngModel)]="nuevoComentario">
+            </textarea>
+            <div class="d-flex justify-content-end">
+              <button class="nt-btn-post" (click)="agregarComentario()">Comentar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="d-flex flex-column gap-5">
+          <div *ngFor="let comentario of comentarios" class="d-flex gap-4">
+            <div class="nt-review-avatar-wrap">
+              <div class="nt-avatar">{{ comentario.nombre[0] }}</div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex align-items-center gap-3">
+                <span class="nt-reviewer-name">{{ comentario.nombre }}</span>
+                <span class="nt-review-time">{{ comentario.tiempo }}</span>
+              </div>
+              <div class="nt-stars mb-1">
+                <span *ngFor="let filled of obtenerEstrellaArray(comentario.estrellas)"
+                  class="material-symbols-outlined"
+                  [ngClass]="{'fill-icon': filled}">
+                  star
+                </span>
+              </div>
+              <p class="nt-review-text mb-0">{{ comentario.texto }}</p>
+              <div class="d-flex gap-4 mt-1">
+                <button class="nt-reaction-btn">
+                  <span class="material-symbols-outlined">thumb_up</span> 341
+                </button>
+                <button class="nt-reaction-btn">
+                  <span class="material-symbols-outlined">reply</span> Reply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="nt-footer">
+  <div class="container-xxl px-4 mx-auto" style="max-width:1440px;">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+
+      <div class="d-flex flex-column align-items-center align-items-md-start gap-2">
+        <span class="nt-footer-brand">MOVIX</span>
+        <p class="nt-footer-copy mb-0 text-center text-md-start" style="max-width:20rem;">
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="d-flex gap-5">
+        <div class="d-flex flex-column gap-3">
+          <span class="nt-footer-col-title">Explorar</span>
+          <a class="nt-footer-link" href="#">Privacidad</a>
+          <a class="nt-footer-link" href="#">Terminos y condiciones</a>
+        </div>
+        <div class="d-flex flex-column gap-3">
+          <span class="nt-footer-col-title">Soporte</span>
+          <a class="nt-footer-link" href="#">Contacto</a>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button class="nt-footer-social-btn material-symbols-outlined">public</button>
+        <button class="nt-footer-social-btn material-symbols-outlined">share</button>
+        <button class="nt-footer-social-btn material-symbols-outlined">favorite</button>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+</div>

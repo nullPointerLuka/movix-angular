@@ -1,0 +1,221 @@
+<div class="home-page">
+  
+<nav class="nt-navbar fixed-top">
+  <div class="container-xxl d-flex align-items-center justify-content-between px-4 py-3" style="max-width:1440px;">
+
+ 
+    <a class="nt-brand" href="#">Movix</a>
+
+    
+    <div class="d-none d-md-flex align-items-center gap-4">
+      <a class="nt-nav-link active" href="#">Home</a>
+      <a class="nt-nav-link" href="#"></a>
+      <a class="nt-nav-link" href="#"></a>
+      <a class="nt-nav-link" href="#"></a>
+    </div>
+
+  
+    <div class="d-none d-lg-block" style="width:380px;">
+      <div class="nt-search-wrap">
+        <span class="material-symbols-outlined">search</span>
+        <input id="searchInput" class="nt-search" placeholder="Buscar Peliculas...." type="text" (input)="buscar($event)"/>
+      </div>
+    </div>
+
+    <!-- Action Icons -->
+    <div class="d-flex align-items-center gap-2">
+      <button class="nt-icon-btn">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+      <button class="nt-icon-btn">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<main class="pt-5 pb-5" style="margin-top:64px; min-height:100vh;">
+  <div class="container-xxl px-3 px-lg-5" style="max-width:1440px;">
+
+    
+    <section class="mb-4 d-block d-lg-none">
+      <div class="nt-search-wrap">
+        <span class="material-symbols-outlined">search</span>
+        <input class="nt-search" style="border-radius:.75rem; padding:.9rem 1rem .9rem 2.8rem;" placeholder="Search movies..." type="text" (input)="buscar($event)"/>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="mb-5">
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+
+        <!-- Generos -->
+ <div class="d-flex align-items-center gap-2 nt-scrollbar pb-1">
+  <span class="text-uppercase fw-bold me-1">Generos</span>
+ <button class="nt-filter-pill" [class.active]="generoActivo === 'Todos'" (click)="filtrarGenero('Todos')">Todos</button>
+<button class="nt-filter-pill" [class.active]="generoActivo === 'Acción'" (click)="filtrarGenero('Acción')">Accion</button>
+  <button class="nt-filter-pill" [class.active]="generoActivo === 'Drama'" (click)="filtrarGenero('Drama')">Drama</button>
+  <button class="nt-filter-pill" [class.active]="generoActivo === 'Comedia'" (click)="filtrarGenero('Comedia')">Comedia</button>
+  <button class="nt-filter-pill" [class.active]="generoActivo === 'Ficción'" (click)="filtrarGenero('Ficción')">Ficcion</button>
+  <button class="nt-filter-pill" [class.active]="generoActivo === 'Suspenso'" (click)="filtrarGenero('Suspenso')">Suspenso</button>
+</div>
+
+        <!-- Filtro  -->
+      <div class="d-flex align-items-center gap-2 nt-scrollbar pb-1">
+  <span class="text-uppercase fw-bold me-1">Filtro</span>
+
+  <button class="nt-sort-btn" [class.active]="ordenActivo === 'rating'" (click)="ordenarPor('rating')">Top rated</button>
+  <button class="nt-sort-btn" [class.active]="ordenActivo === 'vistas'" (click)="ordenarPor('vistas')">Mas vistos</button>
+  <button class="nt-sort-btn" [class.active]="ordenActivo === 'recomendado'" (click)="ordenarPor('recomendado')">Recomendados</button>
+</div>
+
+      </div>
+    </section>
+
+    
+
+    <section 
+  class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-5"
+>
+
+  <div
+    class="col"
+    *ngFor="let movie of peliculasFiltradas"
+  >
+
+    <div class="nt-movie-card h-100">
+
+      <div class="nt-poster-wrap">
+
+        <img
+          [src]="movie.imagen"
+          [alt]="movie.titulo"
+        >
+
+        <div class="nt-poster-gradient"></div>
+
+        <div class="nt-rating-badge">
+          <span class="material-symbols-outlined">
+            star
+          </span>
+
+          {{ movie.rating }}
+        </div>
+
+      </div>
+
+      <div class="nt-card-body">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+          <div class="d-flex flex-wrap gap-2">
+
+            <span
+              class="nt-genre-tag"
+              *ngFor="let genero of movie.genero.slice(0, 2)"
+            >
+              {{ genero }}
+            </span>
+
+            <span
+              class="nt-genre-tag"
+              *ngIf="movie.genero.length > 2"
+            >
+              +{{ movie.genero.length  - 2 }}
+            </span>
+
+          </div>
+
+          <span class="nt-duration-tag">
+            {{ movie.duracion }}
+          </span>
+
+        </div>
+
+        <h3 class="nt-card-title mb-2">
+          {{ movie.titulo.toUpperCase() }}
+        </h3>
+
+        <p class="nt-card-desc mb-4">
+          {{ movie.descripcionCorta }}
+        </p>
+
+        <div class="mt-auto">
+
+          <button
+            class="nt-btn-details"
+            (click)="verDetalle(movie.id)"
+          >
+
+            Ver Detalles
+
+            <span class="material-symbols-outlined nt-arrow">
+              arrow_forward
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <section class="row g-4 mb-5">
+
+  
+      <div class="col-12 col-md-7">
+        <div class="nt-newsletter-card h-100">
+          <div class="nt-newsletter-glow"></div>
+          <h2 class="nt-newsletter-title mb-3">
+            INGRESA AL CIRCULO DE   <span class="accent">MOVIX</span>
+          </h2>
+          <p class="nt-newsletter-desc mb-4">Obtén acceso anticipado exclusivo a reseñas de películas, noticias de festivales y análisis cinematográficos profundos seleccionados por nuestros expertos.</p>
+          <div class="d-flex flex-column flex-sm-row gap-3">
+            <input class="nt-email-input" placeholder="Ingesa tu correo" type="email"/>
+            <button class="nt-btn-subscribe">Suscribirse </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-md-5">
+        <div class="nt-curate-card h-100">
+          <span class="material-symbols-outlined mb-4">movie_filter</span>
+          <div>
+            <h3 class="nt-curate-title mb-2">Personaliza tu contenido</h3>
+            <p class="nt-curate-desc mb-4">Crea listas de seguimiento y califica tus favoritas para mejorar nuestras recomendaciones.</p>
+            <a class="nt-curate-link" href="#">
+              Crear cuenta <span class="material-symbols-outlined">chevron_right</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+
+<footer class="nt-footer">
+  <div class="container-xxl px-4" style="max-width:1440px;">
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-center gap-4">
+      <div class="nt-footer-brand">Movix</div>
+      <div class="d-flex flex-wrap justify-content-center gap-4">
+        <a class="nt-footer-link" href="#">Privacidad</a>
+        <a class="nt-footer-link" href="#">Terminos y condiciones</a>
+        <a class="nt-footer-link" href="#">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div>

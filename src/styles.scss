@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+  $primary-color: #FF003C;
+$radius-main: .75rem;
+$transition-fast: .2s;
+$card-padding: 1.5rem;
+$font-main: 'Plus Jakarta Sans', sans-serif;
+
+$prefix: "nt";
+
+
+  :root {
+      
+      --nt-primary:                   #ff8d8d;
+      --nt-primary-dim:               #e90036;
+      --nt-primary-container:         #ff7578;
+      --nt-primary-fixed:             #ff7578;
+      --nt-primary-fixed-dim:         #ff5961;
+      --nt-on-primary:                #640011;
+      --nt-on-primary-fixed:          #000000;
+      --nt-on-primary-container:      #4e000b;
+      --nt-on-primary-fixed-variant:  #600010;
+      --nt-inverse-primary:           #c0002b;
+
+     
+      --nt-secondary:                 #fb7e9f;
+      --nt-secondary-dim:             #f17797;
+      --nt-secondary-container:       #832041;
+      --nt-secondary-fixed:           #ffc2ce;
+      --nt-secondary-fixed-dim:       #ffadbf;
+      --nt-on-secondary:              #560023;
+      --nt-on-secondary-container:    #ffc0cc;
+      --nt-on-secondary-fixed:        #6a092f;
+      --nt-on-secondary-fixed-variant:#902b4b;
+
+    
+      --nt-tertiary:                  #c89dff;
+      --nt-tertiary-dim:              #b688f3;
+      --nt-tertiary-fixed:            #c89dff;
+      --nt-tertiary-fixed-dim:        #bc8df9;
+      --nt-tertiary-container:        #bc8df9;
+      --nt-on-tertiary:               #430f7c;
+      --nt-on-tertiary-container:     #36006c;
+      --nt-on-tertiary-fixed:         #24004c;
+      --nt-on-tertiary-fixed-variant: #4d1d86;
+
+  
+      --nt-background:                #0e0e0e;
+      --nt-surface:                   #0e0e0e;
+      --nt-surface-dim:               #0e0e0e;
+      --nt-surface-bright:            #2c2c2c;
+      --nt-surface-container-lowest:  #000000;
+      --nt-surface-container-low:     #131313;
+      --nt-surface-container:         #1a1919;
+      --nt-surface-container-high:    #201f1f;
+      --nt-surface-container-highest: #262626;
+      --nt-surface-variant:           #262626;
+      --nt-inverse-surface:           #fcf9f8;
+
+      
+      --nt-on-background:             #ffffff;
+      --nt-on-surface:                #ffffff;
+      --nt-on-surface-variant:        #adaaaa;
+      --nt-inverse-on-surface:        #565555;
+
+    
+      --nt-outline:                   #767575;
+      --nt-outline-variant:           #484847;
+      --nt-surface-tint:              #ff8d8d;
+
+   
+      --nt-error:                     #ff7351;
+      --nt-error-dim:                 #d53d18;
+      --nt-error-container:           #b92902;
+      --nt-on-error:                  #450900;
+      --nt-on-error-container:        #ffd2c8;
+
+     
+      --nt-font-headline: 'Plus Jakarta Sans', sans-serif;
+      --nt-font-body:     'Inter', sans-serif;
+    }
+body{
+    background-color: var(--nt-background);
+    margin: 0;
+    padding: 0;
+}
