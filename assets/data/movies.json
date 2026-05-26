@@ -1,0 +1,173 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "titulo": "Arcane",
+      "imagen": "assets/img/Arcane/Portada/arcane.jpg",
+      "video": "assets/img/Arcane/Video/Arcane.mp4",
+      "descripcionCorta": "Dos hermanas quedan atrapadas en un conflicto entre poder, tecnología y desigualdad.",
+      "sinopsis": "En las ciudades de Piltover y Zaun, la tensión entre el progreso y la opresión crece cada día. Vi y Jinx, dos hermanas separadas por la tragedia, terminan en lados opuestos de un conflicto que involucra tecnología peligrosa y luchas de poder. Mientras alianzas se rompen y nuevas fuerzas emergen, cada decisión acerca más a la ciudad al caos.",
+      "genero":["Animación","Acción","Drama"],
+      "duracion": "9 episodios",
+      "anio":"2021",
+      "clasificacion":"16+",
+      "rating": 100,
+      "vistas": 500,
+      "badges": [""],
+      "recomendado":true,
+      "actores": [
+        {
+          "nombre": "Hailee Steinfeld",
+          "imagen": "assets/img/Arcane/Actores/Vi.jpg",
+          "personaje": "Vi"
+        },
+        {
+          "nombre": "Ella Purnell",
+          "imagen": "assets/img/Arcane/Actores/Jinx.jpg  ",
+          "personaje": "Jinx"
+        },
+        {
+          "nombre": "Kevin Alejandro",
+          "imagen": "assets/img/Arcane/Actores/Jayce.jpg",
+          "personaje": "Jayce"
+        }
+      ],
+      "comentarios": [
+        "Animación impresionante",
+        "Historia emocional y profunda",
+        "De las mejores adaptaciones de videojuegos"
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Inception",
+      "imagen": "assets/img/Inception/Portada/Inception.jpg",
+      "video": "assets/img/Inception/Video/Inception.mp4",
+      "descripcionCorta": "Un ladrón entra en los sueños para robar secretos.",
+      "sinopsis": "Dom Cobb es un experto en infiltrarse en los sueños de las personas para extraer información valiosa. Su vida cambia cuando recibe la misión de implantar una idea en lugar de robarla. A medida que profundiza en múltiples niveles de sueño, la línea entre la realidad y la ilusión comienza a desdibujarse.",
+      "genero": ["Acción", "Ficción", "Suspenso"],
+      "duracion": "148 min",
+      "anio": "2010",
+      "clasificacion": "13+",
+      "rating": 87,
+      "vistas": 1200,
+      "badges": [""],
+      "actores": [
+        {
+          "nombre": "Leonardo DiCaprio",
+          "imagen": "assets/img/Inception/Actores/cobb.jpg",
+          "personaje": "Dom Cobb"
+        },
+        {
+          "nombre": "Joseph Gordon-Levitt",
+          "imagen": "assets/img/Inception/Actores/arthur.jpg",
+          "personaje": "Arthur"
+        }
+      ],
+      "comentarios": [
+        "Muy inteligente",
+        "Efectos increíbles",
+        "Final que te hace pensar"
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "The Dark Knight",
+      "imagen": "assets/img/DarkKnight/Portada/darkknight.jpg",
+      "video": "assets/img/DarkKnight/Video/darkknight.mp4",
+      "descripcionCorta": "Batman enfrenta a su enemigo más caótico.",
+      "sinopsis": "Batman, junto al comisionado Gordon y Harvey Dent, intenta limpiar Gotham del crimen. Sin embargo, la aparición del Joker desata el caos, obligando a Batman a enfrentarse a decisiones morales difíciles mientras la ciudad cae en la anarquía.",
+      "genero": ["Acción", "Drama", "Suspenso"],
+      "duracion": "152 min",
+      "anio": "2008",
+      "clasificacion": "13+",
+      "rating": 94,
+      "vistas": 2000,
+      "badges": ["Popular"],
+      "actores": [
+        {
+          "nombre": "Christian Bale",
+          "imagen": "assets/img/DarkKnight/Actores/batman.jpg",
+          "personaje": "Bruce Wayne"
+        },
+        {
+          "nombre": "Heath Ledger",
+          "imagen": "assets/img/DarkKnight/Actores/joker.jpg",
+          "personaje": "Joker"
+        }
+      ],
+      "comentarios": [
+        "Actuación legendaria",
+        "Oscura y profunda",
+        "Una de las mejores de superhéroes"
+      ]
+    },
+    {
+      "id": 4,
+      "titulo": "Interstellar",
+      "imagen": "assets/img/Interstellar/Portada/interstellar.jpg",
+      "video": "assets/img/Interstellar/Video/interstellar.mp4",
+      "descripcionCorta": "Un viaje espacial para salvar a la humanidad.",
+      "sinopsis": "En un futuro donde la Tierra está muriendo, un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad. Mientras exploran planetas desconocidos, enfrentan decisiones que afectan el destino de todos.",
+      "genero": ["Ficción", "Drama"],
+      "duracion": "169 min",
+      "anio": "2014",
+      "clasificacion": "13+",
+      "rating": 91,
+      "vistas": 1800,
+      "badges": ["Recomendado"],
+      "actores": [
+        {
+          "nombre": "Matthew McConaughey",
+          "imagen": "assets/img/Interstellar/Actores/cooper.jpg",
+          "personaje": "Cooper"
+        },
+        {
+          "nombre": "Anne Hathaway",
+          "imagen": "assets/img/Interstellar/Actores/brand.jpg",
+          "personaje": "Brand"
+        }
+      ],
+      "comentarios": [
+        "Muy emotiva",
+        "Ciencia y sentimiento",
+        "Visualmente espectacular"
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "The Hangover",
+      "imagen": "assets/img/Hangover/Portada/hangover.jpg",
+      "video": "assets/img/Hangover/Video/hangover.mp4",
+      "descripcionCorta": "Una despedida de soltero fuera de control.",
+      "sinopsis": "Tres amigos despiertan en Las Vegas sin recordar lo ocurrido la noche anterior. Con el novio desaparecido, deben reconstruir sus pasos para encontrarlo antes de la boda, enfrentándose a situaciones absurdas y cómicas.",
+      "genero": ["Comedia"],
+      "duracion": "100 min",
+      "anio": "2009",
+      "clasificacion": "16+",
+      "rating": 78,
+      "vistas": 1500,
+      "badges": [""],
+
+      "recomendado": true,
+      
+      "actores": [
+        {
+          "nombre": "Bradley Cooper",
+          "imagen": "assets/img/Hangover/Actores/phil.jpg",
+          "personaje": "Phil"
+        },
+        {
+          "nombre": "Zach Galifianakis",
+          "imagen": "assets/img/Hangover/Actores/alan.jpg",
+          "personaje": "Alan"
+        }
+      ],
+      "comentarios": [
+        "Muy divertida",
+        "Situaciones locas",
+        "Perfecta para reír"
+      ]
+    }
+  ]
+}
