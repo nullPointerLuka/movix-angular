@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class Home implements OnInit {
 
+
   constructor(
+    private router: Router,
     private http: HttpClient,
     private ngZone: NgZone,
     private cdr: ChangeDetectorRef
@@ -117,10 +120,14 @@ export class Home implements OnInit {
   }
 
 
-  verDetalle(id: number) {
+ verDetalle(id: number) {
 
-    window.location.href = `/details?id=${id}`;
+  this.router.navigate(
+    ['/details'],
+    {
+      queryParams: { id }
+    }
+  );
 
-  }
-
+ }
 }
